@@ -10,7 +10,9 @@
 <meta name="author" content="punchline studio – Pirmin Styrnol & Maik Styrnol GbR">
 <link rel="canonical" href="https://www.welive-festival.com/">
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
@@ -65,7 +67,7 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   :root{
     --bg:#0c0b0c; --bg-warm:#161415; --bg-card:#1b1819;
-    --red:#c8393f; --red-dim:#6e2226;
+    --red:#8b0000; --red-dim:#4a0000;
     --teal:#2fb8ac; --teal-dim:#1c6b64;
     --off-white:#f0ece6; --muted:#918d89; --border:#2a2627;
     --max:1180px; --r:3px;
@@ -79,7 +81,7 @@
   .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;}
   .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--red);}
   .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.6rem;border-radius:var(--r);font-size:0.85rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'Inter',sans-serif;}
-  .btn-primary{background:var(--red);color:#0d0b10;}
+  .btn-primary{background:var(--red);color:var(--off-white);}
   .btn-primary:hover{opacity:.85;}
   .btn-secondary{background:transparent;color:var(--off-white);border:1px solid var(--border);}
   .btn-secondary:hover{border-color:var(--red-dim);color:var(--red);}
@@ -168,7 +170,7 @@
   .logo-group-label{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.9rem;margin-top:2rem;}
   .logo-group-label:first-child{margin-top:0;}
   .logo-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;}
-  .logo-tile{background:#f4f1ec;border-radius:6px;padding:1.1rem;display:flex;align-items:center;justify-content:center;min-height:92px;}
+  .logo-tile{background:#ffffff;border-radius:6px;padding:1.1rem;display:flex;align-items:center;justify-content:center;min-height:92px;}
   .logo-tile img{max-width:100%;max-height:52px;width:auto;height:auto;object-fit:contain;}
   .logo-tile.dark{background:var(--bg-card);border:1px solid var(--border);}
 
@@ -369,7 +371,7 @@
       </button>
 
     </div>
-    <p class="filmstrip-hint container">← Zum Durchblättern scrollen · jede Folge öffnet auf YouTube →</p>
+    <p class="filmstrip-hint container">← Zum Durchblättern scrollen · jede Folge startet direkt hier im Player →</p>
   </div>
 </section>
 
@@ -420,6 +422,7 @@
       <div class="logo-tile"><img src="/assets/sponsors/sparkasse-regionalstiftung.png" alt="Regionalstiftung der Sparkasse Offenburg/Ortenau" loading="lazy"></div>
       <div class="logo-tile"><img src="/assets/sponsors/buergerstiftung-lahr.png" alt="Bürgerstiftung Lahr" loading="lazy"></div>
       <div class="logo-tile"><img src="/assets/sponsors/buergerstiftung-kehl.png" alt="Bürgerstiftung Kehl" loading="lazy"></div>
+      <div class="logo-tile"><img src="/assets/sponsors/stadt-lahr.png" alt="Stadt Lahr" loading="lazy"></div>
       <div class="logo-tile"><img src="/assets/sponsors/stadtgulden-lahr.png" alt="Stadtgulden Lahr" loading="lazy"></div>
       <div class="logo-tile"><img src="/assets/sponsors/stadt-kehl.png" alt="Stadt Kehl" loading="lazy"></div>
       <div class="logo-tile"><img src="/assets/sponsors/lions-club.png" alt="Lions Club" loading="lazy"></div>
@@ -447,6 +450,8 @@
       <div class="team-chip"><div class="name">Maik Styrnol</div><div class="role">Regie, Schnitt, Mixing &amp; Mastering</div></div>
       <div class="team-chip"><div class="name">Pirmin Styrnol</div><div class="role">Regie &amp; Produktion</div></div>
       <div class="team-chip"><div class="name"><a href="https://raphaelfederer.de" target="_blank" rel="noopener" style="color:var(--off-white);text-decoration:none;border-bottom:1px solid var(--red-dim);">Raphael Federer ↗</a></div><div class="role">Cinematography</div></div>
+      <div class="team-chip"><div class="name"><a href="https://www.film-und-ton.de" target="_blank" rel="noopener" style="color:var(--off-white);text-decoration:none;border-bottom:1px solid var(--red-dim);">punchline studio ↗</a></div><div class="role">Produktionsfirma</div></div>
+      <div class="team-chip"><div class="name"><a href="https://www.rockwerkstatt.de" target="_blank" rel="noopener" style="color:var(--off-white);text-decoration:none;border-bottom:1px solid var(--red-dim);">Lahrer Rockwerkstatt e.V. ↗</a></div><div class="role">Veranstalter</div></div>
     </div>
   </div>
 </section>

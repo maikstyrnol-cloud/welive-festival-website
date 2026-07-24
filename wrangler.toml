@@ -1,0 +1,6 @@
+name = "welive-festival-website"
+compatibility_date = "2026-06-30"
+
+[assets]
+directory = "./"
+not_found_handling = "404-page"
