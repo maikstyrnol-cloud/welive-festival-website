@@ -124,6 +124,20 @@
   .hero-video-cap strong{color:var(--off-white);font-weight:600;}
   @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
 
+  /* HERO TEASER BAR (Staffel 2) */
+  .hero-teaser{position:relative;z-index:1;margin-top:3.5rem;width:100%;display:flex;align-items:center;gap:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1rem 1.5rem 1rem 1rem;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,transform .2s;}
+  .hero-teaser:hover,.hero-teaser:focus-visible{border-color:var(--red-dim);transform:translateY(-3px);}
+  .hero-teaser:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .hero-teaser-thumb{position:relative;flex-shrink:0;width:130px;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:#000 center/cover no-repeat;}
+  .hero-teaser-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(200,57,63,0.3),transparent 60%);}
+  .hero-teaser-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .hero-teaser-play svg{width:26px;height:26px;opacity:0.95;}
+  .hero-teaser-body{flex:1;min-width:0;}
+  .hero-teaser-label{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.35rem;}
+  .hero-teaser-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--off-white);}
+  .hero-teaser-cta{flex-shrink:0;font-size:0.78rem;font-weight:600;color:var(--red);white-space:nowrap;}
+  @media (max-width:600px){.hero-teaser{flex-wrap:wrap;} .hero-teaser-cta{width:100%;text-align:right;}}
+
   /* SECTION generic */
   section{padding:6rem 0;}
   .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.9rem;}
@@ -237,26 +251,38 @@
 </nav>
 
 <section id="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Konzertfilm-Serie seit 2020 · Lahr</div>
-      <h1 class="hero-h1">Große Konzerte.<br>Kleine Bühnen.<br><em>Großes Kino.</em></h1>
-      <p class="hero-sub">WeLive zeigt großartige Musiker abseits des Mainstream in aufwändig produzierten Konzertfilmen – mit bis zu 15 Kameras, durchdachter Lichtshow und dem Sound- und Bildhandwerk von punchline studio.</p>
-      <div class="hero-actions">
-        <a href="#folgen" class="btn btn-primary">Alle Folgen ansehen</a>
-        <a href="#ueber" class="btn btn-secondary">Wie WeLive entstand</a>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Konzertfilm-Serie seit 2020 · Lahr</div>
+        <h1 class="hero-h1">Große Konzerte.<br>Kleine Bühnen.<br><em>Großes Kino.</em></h1>
+        <p class="hero-sub">WeLive zeigt großartige Musiker abseits des Mainstream in aufwändig produzierten Konzertfilmen – mit bis zu 15 Kameras, durchdachter Lichtshow und dem Sound- und Bildhandwerk von punchline studio.</p>
+        <div class="hero-actions">
+          <a href="#folgen" class="btn btn-primary">Alle Folgen ansehen</a>
+          <a href="#ueber" class="btn btn-secondary">Wie WeLive entstand</a>
+        </div>
+        <div class="award-row">
+          <div class="award-chip"><span class="dot"></span> Deutscher Rock&amp;Pop-Preis 2020</div>
+          <div class="award-chip"><span class="dot"></span> Alternativer Medienpreis 2021</div>
+        </div>
       </div>
-      <div class="award-row">
-        <div class="award-chip"><span class="dot"></span> Deutscher Rock&amp;Pop-Preis 2020</div>
-        <div class="award-chip"><span class="dot"></span> Alternativer Medienpreis 2021</div>
+      <div class="hero-video">
+        <div class="ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/Bnh2UBMkedc" title="Attila Reißmann – Lila | WeLive Episode 16" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="hero-video-cap"><span><strong>Episode 16</strong> · Attila Reißmann</span><span>Bunkerkonzert</span></div>
       </div>
     </div>
-    <div class="hero-video">
-      <div class="ratio">
-        <iframe src="https://www.youtube-nocookie.com/embed/Bnh2UBMkedc" title="Attila Reißmann – Lila | WeLive Episode 16" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <button type="button" class="hero-teaser frame" data-id="Z3CpgstUWoA" data-caption="Teaser · WeLive Staffel 2">
+      <div class="hero-teaser-thumb" style="background-image:url('https://img.youtube.com/vi/Z3CpgstUWoA/hqdefault.jpg')">
+        <div class="hero-teaser-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(13,11,16,0.75)"/><path d="M10 8l6 4-6 4V8z" fill="#fff"/></svg></div>
       </div>
-      <div class="hero-video-cap"><span><strong>Episode 16</strong> · Attila Reißmann</span><span>Bunkerkonzert</span></div>
-    </div>
+      <div class="hero-teaser-body">
+        <div class="hero-teaser-label">Staffel 2 · Offizieller Teaser</div>
+        <div class="hero-teaser-title">WeLive geht in die zweite Staffel</div>
+      </div>
+      <span class="hero-teaser-cta">Teaser ansehen ▶</span>
+    </button>
   </div>
 </section>
 
@@ -293,11 +319,6 @@
   </div>
   <div class="filmstrip-rail">
     <div class="filmstrip-scroll">
-
-      <button type="button" class="frame" data-id="Z3CpgstUWoA" data-caption="Teaser · WeLive Staffel 2">
-        <div class="frame-thumb teal" style="background-image:url('https://img.youtube.com/vi/Z3CpgstUWoA/hqdefault.jpg')"><span class="frame-num">Teaser</span><div class="frame-play">▶</div></div>
-        <div class="frame-body"><div class="frame-genre">Staffel 2</div><div class="frame-title">WeLive – Offizieller Teaser</div></div>
-      </button>
 
       <button type="button" class="frame" data-id="Bnh2UBMkedc" data-caption="Ep. 16 · Attila Reißmann – Lila | Bunkerkonzert (Singer-Songwriter)">
         <div class="frame-thumb red" style="background-image:url('https://img.youtube.com/vi/Bnh2UBMkedc/hqdefault.jpg')"><span class="frame-num">Ep. 16</span><div class="frame-play">▶</div></div>
