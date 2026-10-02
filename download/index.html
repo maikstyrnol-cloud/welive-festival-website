@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WeLive Booklet als PDF-Download – punchline® studio</title>
+<meta name="description" content="Das digitale WeLive-Booklet kostenlos als PDF herunterladen – vom Portfolio von punchline studio.">
+<!-- ENTFERNEN, sobald die PDF im R2-Bucket liegt und der Worker deployt ist: -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.welive-festival.com/download/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/subpage.css">
+<link rel="stylesheet" href="/assets/brand-mark.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo-wrap">
+    <a href="/" class="nav-logo"><img src="/assets/welive-logo.webp" alt="WeLive Festival"></a>
+    <span class="nav-subline">powered by <a href="https://www.film-und-ton.de" class="brand-mark brand-mark--nav" aria-label="punchline studio"><img src="/assets/punchline-marke-weiss.webp" width="78" height="54" alt="punchline studio"></a></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/#folgen">Folgen</a></li>
+    <li><a href="/stream/">Premium Stream</a></li>
+    <li><a href="/download/">Download</a></li>
+    <li><a href="/#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+<main>
+<div class="container">
+
+<div class="section-label">Download</div>
+<h1 class="page-title">Das digitale WeLive-Booklet</h1>
+<p class="lead">Hintergründe, Künstlerportraits und Bilder aus dem WeLive-Festival &ndash; als PDF zum Mitnehmen.</p>
+
+<div class="dl-grid">
+  <div class="dl-card">
+    <h2>WeLive-Booklet (PDF)</h2>
+    <p style="color:var(--muted);font-size:.92rem;">Kostenloser Download. Wir senden dir keinen Spam: Der Newsletter ist eine separate, freiwillige Option.</p>
+    <ul class="dl-facts">
+      <li>Format: PDF</li>
+      <li>Herausgeber: punchline studio &ndash; Pirmin Styrnol &amp; Maik Styrnol GbR</li>
+      <li>Auslieferung: direkt von welive-festival.com</li>
+    </ul>
+    <div class="copyright-block" id="copyright-block">
+      <strong>&copy; <span id="cr-year">2026</span> punchline studio &ndash; Alle Rechte vorbehalten.</strong><br>
+      Herunterladbare Medien im Rahmen des offiziellen Portfolios von punchline studio.
+    </div>
+  </div>
+
+  <div class="dl-card">
+    <h2>Download anfordern</h2>
+    <p class="error-msg" id="form-error" role="alert" hidden></p>
+    <form method="post" action="/api/download-request" id="dl-form">
+      <div class="field"><label for="name">Name (optional)</label><input type="text" id="name" name="name" autocomplete="name" maxlength="120"></div>
+      <div class="field"><label for="email">E-Mail-Adresse *</label><input type="email" id="email" name="email" autocomplete="email" required maxlength="200"></div>
+      <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="check"><input type="checkbox" name="datenschutz" value="yes" required> <span>Ich habe die <a href="/datenschutz/" target="_blank">Datenschutzerkl&auml;rung</a> gelesen. Meine E-Mail-Adresse darf zur Bereitstellung des Downloads verarbeitet werden. *</span></label>
+      <label class="check"><input type="checkbox" name="newsletter" value="yes"> <span>Optional: Ich m&ouml;chte den Studio-Newsletter erhalten. Die Anmeldung wird per E-Mail best&auml;tigt und ist jederzeit widerrufbar.</span></label>
+      <button type="submit" class="btn btn-primary">Download freischalten</button>
+    </form>
+  </div>
+</div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div>&copy; 2020&ndash;2026 punchline studio &ndash; Pirmin Styrnol &amp; Maik Styrnol GbR</div>
+    <ul><li><a href="/">WeLive</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul>
+  </div>
+</footer>
+<script>
+document.getElementById('cr-year').textContent = new Date().getFullYear();
+if(location.search.indexOf('error=') > -1){
+  var e = document.getElementById('form-error');
+  e.hidden = false;
+  e.textContent = 'Das hat leider nicht geklappt. Bitte prüfe deine Eingaben und versuche es erneut.';
+}
+</script>
+</body>
+</html>

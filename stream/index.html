@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WeLive Premium Stream – punchline® studio</title>
+<meta name="description" content="Exklusiver WeLive-Stream in voller Qualität – technisch bereitgestellt von punchline studio.">
+<!-- ENTFERNEN, sobald Stream-Code und Video-ID in der Konfiguration unten eingetragen sind: -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.welive-festival.com/stream/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/subpage.css">
+<link rel="stylesheet" href="/assets/brand-mark.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo-wrap">
+    <a href="/" class="nav-logo"><img src="/assets/welive-logo.webp" alt="WeLive Festival"></a>
+    <span class="nav-subline">powered by <a href="https://www.film-und-ton.de" class="brand-mark brand-mark--nav" aria-label="punchline studio"><img src="/assets/punchline-marke-weiss.webp" width="78" height="54" alt="punchline studio"></a></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/#folgen">Folgen</a></li>
+    <li><a href="/stream/">Premium Stream</a></li>
+    <li><a href="/download/">Download</a></li>
+    <li><a href="/#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+<main>
+<div class="container">
+
+<div class="section-label">Premium Stream</div>
+<h1 class="page-title">WeLive im Exklusiv-Player</h1>
+<p class="lead">Konzertmitschnitte aus dem WeLive-Festival &ndash; ohne Werbung, ohne Drittanbieter-Oberfläche, in voller Bild- und Tonqualität.</p>
+
+<p class="brand-line">Technisches Web-Streaming bereitgestellt durch <a href="https://www.film-und-ton.de" class="brand-mark brand-mark--inline" aria-label="punchline studio"><img src="/assets/punchline-marke-weiss.webp" width="64" height="44" alt="punchline studio"></a></p>
+
+<div class="player-wrap unconfigured" id="player-wrap">
+  <iframe id="stream-player" title="WeLive Premium Stream"
+    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen loading="lazy"></iframe>
+  <div class="player-fallback">Der Stream wird in K&uuml;rze freigeschaltet.</div>
+</div>
+
+<p class="legal-note">Der Stream wird &uuml;ber die eigene Streaming-Infrastruktur von punchline studio (Pirmin Styrnol &amp; Maik Styrnol GbR) ausgeliefert. Beim Abspielen werden technisch notwendige Daten (u.&nbsp;a. IP-Adresse) an den Streaming-Dienstleister &uuml;bermittelt &ndash; Details in der <a href="/datenschutz/">Datenschutzerkl&auml;rung</a>.</p>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div>&copy; 2020&ndash;2026 punchline studio &ndash; Pirmin Styrnol &amp; Maik Styrnol GbR</div>
+    <ul><li><a href="/">WeLive</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul>
+  </div>
+</footer>
+<script>
+/* ===== KONFIGURATION (Cloudflare Stream) =====
+   CUSTOMER_CODE: Dashboard -> Stream -> beliebiges Video -> Embed-Code: customer-XXXX.cloudflarestream.com
+   VIDEO_ID:      UID des Videos (32 Zeichen)
+   Whitelabel: Der Stream-Player zeigt kein Cloudflare-Logo; Farben/Optik per Query-Parameter. */
+var STREAM = {
+  CUSTOMER_CODE: '',   // z. B. 'a1b2c3d4e5f6g7h8'
+  VIDEO_ID: '',        // z. B. '5d5bc37ffcf54c9b82e996823bffbb81'
+  POSTER: '',          // optional: https://customer-XXXX.cloudflarestream.com/<ID>/thumbnails/thumbnail.jpg
+  PRIMARY_COLOR: '%238b0000',   // WeLive-Rot
+  LETTERBOX_COLOR: '%230c0b0c'  // Seitenhintergrund
+};
+(function(){
+  var wrap = document.getElementById('player-wrap');
+  var frame = document.getElementById('stream-player');
+  if(!STREAM.CUSTOMER_CODE || !STREAM.VIDEO_ID) return;
+  var q = ['primaryColor=' + STREAM.PRIMARY_COLOR, 'letterboxColor=' + STREAM.LETTERBOX_COLOR, 'preload=metadata'];
+  if(STREAM.POSTER) q.push('poster=' + encodeURIComponent(STREAM.POSTER));
+  frame.src = 'https://customer-' + STREAM.CUSTOMER_CODE + '.cloudflarestream.com/' + STREAM.VIDEO_ID + '/iframe?' + q.join('&');
+  wrap.classList.remove('unconfigured');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* ==========================================================================
+   punchline studio – eingetragene Wort-/Bildmarke (DPMA), als EINE Einheit
+   --------------------------------------------------------------------------
+   Die Marke wird ausschließlich als unverändertes Gesamtbild eingebunden
+   (Bildteil über Wortteil, wie angemeldet). Keine Neu-Setzung des Wortteils
+   in Systemschrift, keine Trennung von Bild- und Wortteil, kein "®"-Zusatz,
+   keine Verzerrung (festes Seitenverhältnis 893:618).
+   Dateien: assets/punchline-marke-weiss.webp (dunkler Grund),
+            punchline-marke-schwarz.webp (heller Grund).
+   ========================================================================== */
+.brand-mark{display:inline-block;line-height:0;text-decoration:none;flex:0 0 auto;}
+.brand-mark img{display:block;height:var(--marke-h,52px);width:auto;aspect-ratio:893/618;}
+.brand-mark--nav{--marke-h:54px;}
+.brand-mark--inline{--marke-h:44px;vertical-align:middle;}
+.brand-mark--footer{--marke-h:72px;}
