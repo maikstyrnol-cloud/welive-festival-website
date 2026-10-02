@@ -93,8 +93,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:200;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(13,11,16,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
-  .nav-logo-wrap{display:flex;flex-direction:row;align-items:center;gap:1.4rem;}
-  .nav-subline{display:flex;align-items:center;gap:.6rem;}
+  .nav-logo-wrap{display:flex;flex-direction:column;gap:0.2rem;}
   .nav-logo img{height:34px;width:auto;display:block;filter:brightness(1.1);}
   .nav-subline,.footer-subline{font-size:0.62rem;letter-spacing:0.02em;color:var(--muted);text-decoration:none;}
   .nav-subline:hover,.footer-subline:hover{color:var(--off-white);}
@@ -183,9 +182,14 @@
   .team-row{display:flex;gap:1.25rem;flex-wrap:wrap;}
   .team-chip{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.4rem;flex:1 1 200px;}
   .team-chip .name{font-weight:600;color:var(--off-white);font-size:0.95rem;}
-  .produced-by{display:flex;align-items:center;gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
-  .produced-by-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
-  .brand-mark--produced{--marke-h:96px;}
+  .produced-by{display:flex;align-items:center;gap:1.6rem;margin-top:1.25rem;padding:1.4rem 1.8rem;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;text-decoration:none;transition:border-color .2s;}
+  .produced-by:hover{border-color:var(--red-dim);}
+  .produced-by img{height:75px;width:auto;aspect-ratio:893/618;display:block;flex:0 0 auto;}
+  .produced-by-text{display:flex;flex-direction:column;gap:.15rem;}
+  .produced-by-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+  .produced-by-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--off-white);}
+  .produced-by-sub{font-size:.82rem;color:var(--muted);}
+  @media (max-width:560px){.produced-by{flex-direction:column;align-items:flex-start;gap:1rem;}}
   .team-chip .role{color:var(--muted);font-size:0.8rem;}
 
   /* SUPPORT CTA */
@@ -226,7 +230,7 @@
 <nav>
   <div class="nav-logo-wrap">
     <a href="/" class="nav-logo"><img src="/assets/welive-logo.webp" alt="WeLive Festival"></a>
-    <span class="nav-subline">powered by <a href="https://www.film-und-ton.de" target="_blank" rel="noopener" class="brand-mark brand-mark--nav" aria-label="punchline studio"><img src="/assets/punchline-marke-weiss.webp" width="78" height="54" alt="punchline studio"></a></span>
+    <a href="https://www.film-und-ton.de" target="_blank" rel="noopener" class="nav-subline">powered by <span class="powered-by">punchline studio</span></a>
   </div>
   <ul class="nav-links">
     <li><a href="#folgen">Folgen</a></li>
@@ -464,10 +468,10 @@
       <div class="team-chip"><div class="name"><a href="https://www.film-und-ton.de" target="_blank" rel="noopener" style="color:var(--off-white);text-decoration:none;border-bottom:1px solid var(--red-dim);">punchline studio ↗</a></div><div class="role">Produktionsfirma</div></div>
       <div class="team-chip"><div class="name"><a href="https://www.rockwerkstatt.de" target="_blank" rel="noopener" style="color:var(--off-white);text-decoration:none;border-bottom:1px solid var(--red-dim);">Lahrer Rockwerkstatt e.V. ↗</a></div><div class="role">Veranstalter</div></div>
     </div>
-    <div class="produced-by">
-      <span class="produced-by-label">Produziert von</span>
-      <a href="https://www.film-und-ton.de" target="_blank" rel="noopener" class="brand-mark brand-mark--produced" aria-label="punchline studio"><img src="/assets/punchline-marke-weiss.webp" width="159" height="110" loading="lazy" alt="punchline studio"></a>
-    </div>
+    <a href="https://www.film-und-ton.de" target="_blank" rel="noopener" class="produced-by" aria-label="punchline studio">
+      <img src="/assets/punchline-marke-weiss.webp" width="108" height="75" loading="lazy" alt="punchline studio">
+      <span class="produced-by-text"><span class="produced-by-label">Produziert von</span><span class="produced-by-name">punchline studio</span><span class="produced-by-sub">Pirmin Styrnol &amp; Maik Styrnol GbR &middot; Tonstudio &amp; Videoproduktion, Lahr</span></span>
+    </a>
   </div>
 </section>
 
