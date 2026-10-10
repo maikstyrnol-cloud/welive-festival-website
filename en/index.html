@@ -160,6 +160,18 @@
   .frame-body{padding:0.95rem 1rem 1.1rem;}
   .frame-genre{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.35rem;}
   .frame-title{font-family:'Playfair Display',serif;font-weight:700;font-size:0.98rem;line-height:1.3;color:var(--off-white);}
+  .filmstrip-viewport{position:relative;}
+  .filmstrip-nav{position:absolute;top:calc(50% - 0.5rem);transform:translateY(-50%);z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);background:rgba(13,11,16,0.82);color:var(--off-white);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;box-shadow:0 4px 18px rgba(0,0,0,0.45);transition:opacity .2s,background .2s,border-color .2s,transform .2s;}
+  .filmstrip-nav svg{width:22px;height:22px;}
+  .filmstrip-nav:hover,.filmstrip-nav:focus-visible{background:var(--red);border-color:var(--red);}
+  .filmstrip-nav:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .filmstrip-nav.prev{left:0.75rem;}
+  .filmstrip-nav.next{right:0.75rem;}
+  .filmstrip-nav[hidden]{display:flex;opacity:0;pointer-events:none;}
+  .filmstrip-nav.next.nudge{animation:filmstripNudge 1.6s ease-in-out 3;}
+  @keyframes filmstripNudge{0%,100%{transform:translateY(-50%) translateX(0);}50%{transform:translateY(-50%) translateX(6px);}}
+  @media (prefers-reduced-motion:reduce){.filmstrip-nav.next.nudge{animation:none;}}
+  @media (max-width:600px){.filmstrip-nav{width:40px;height:40px;}.filmstrip-nav.prev{left:0.4rem;}.filmstrip-nav.next{right:0.4rem;}}
   .filmstrip-hint{text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.5rem;}
 
   /* AWARDS */
@@ -292,6 +304,9 @@
     <p class="section-intro">Each episode is a standalone concert film – one genre, one location, one staging. Watch directly here or head over to the WeLive YouTube channel.</p>
   </div>
   <div class="filmstrip-rail">
+    <div class="filmstrip-viewport">
+    <button type="button" class="filmstrip-nav prev" aria-label="Previous episodes" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button type="button" class="filmstrip-nav next nudge" aria-label="More episodes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
     <div class="filmstrip-scroll">
 
       <button type="button" class="frame" data-id="Z3CpgstUWoA" data-caption="Teaser · WeLive Season 2">
@@ -380,7 +395,8 @@
       </button>
 
     </div>
-    <p class="filmstrip-hint container">← Scroll to browse · every episode plays right here →</p>
+    </div>
+    <p class="filmstrip-hint container">← Use the arrows or swipe to browse · every episode plays right here →</p>
   </div>
 </section>
 
@@ -536,6 +552,26 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape') closeVideo();
   });
+})();
+</script>
+
+<script>
+(function(){
+  var scroller = document.querySelector('.filmstrip-scroll');
+  if(!scroller) return;
+  var prev = document.querySelector('.filmstrip-nav.prev');
+  var next = document.querySelector('.filmstrip-nav.next');
+  function step(){ var f = scroller.querySelector('.frame'); return f ? (f.getBoundingClientRect().width + 20) * Math.max(1, Math.floor(scroller.clientWidth / 290)) : scroller.clientWidth * 0.8; }
+  function update(){
+    var max = scroller.scrollWidth - scroller.clientWidth - 4;
+    prev.hidden = scroller.scrollLeft <= 4;
+    next.hidden = scroller.scrollLeft >= max;
+  }
+  prev.addEventListener('click', function(){ scroller.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', function(){ next.classList.remove('nudge'); scroller.scrollBy({left:step(), behavior:'smooth'}); });
+  scroller.addEventListener('scroll', function(){ next.classList.remove('nudge'); update(); }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 
