@@ -1,7 +1,6 @@
 .git
 .wrangler
 .gitignore
-worker.js
 wrangler.toml
 MARKENNUTZUNG-README.md
 _to_delete

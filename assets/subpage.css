@@ -1,4 +1,4 @@
-/* Gemeinsame Basis für /stream/ und /download/ (gleiche Tokens wie die Startseite) */
+/* Basis für /stream/ (gleiche Tokens wie die Startseite) */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--bg:#0c0b0c;--bg-warm:#161415;--bg-card:#1b1819;--red:#8b0000;--red-dim:#4a0000;--teal:#2fb8ac;--off-white:#f0ece6;--muted:#918d89;--border:#2a2627;--max:1180px;--r:3px;}
 html{scroll-behavior:smooth;}
