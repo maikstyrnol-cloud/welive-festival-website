@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Lokaler Wrangler-Cache
+.wrangler/
+
+# Leerer Arbeitsordner
+api-src/
+
+# Lokale Claude-Code-Einstellungen
+.claude/

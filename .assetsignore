@@ -6,3 +6,6 @@ wrangler.toml
 MARKENNUTZUNG-README.md
 _to_delete
 api-src
+.DS_Store
+api-src
+.claude

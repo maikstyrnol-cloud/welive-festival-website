@@ -38,7 +38,8 @@ const redirect = (url, path) => Response.redirect(new URL(path, url).toString(),
 async function handleRequest(request, env) {
   const url = new URL(request.url);
   if (!env.DOWNLOAD_SECRET) return redirect(url, '/download/?error=1');
-  const form = await request.formData();
+  let form;
+  try { form = await request.formData(); } catch (e) { return redirect(url, '/download/?error=1'); }
 
   if (form.get('website')) return redirect(url, '/download/danke/?t=x'); // Honeypot: Bots ins Leere laufen lassen
   const email = String(form.get('email') || '').trim();
@@ -66,8 +67,10 @@ async function handleRequest(request, env) {
 
 async function handleFile(request, env) {
   const token = new URL(request.url).searchParams.get('t');
-  if (!(await verifyToken(env.DOWNLOAD_SECRET, token))) return new Response('Link abgelaufen oder ungültig.', { status: 403 });
+  // Erst die Konfiguration pruefen: ohne Secret wuerde verifyToken mit leerem
+  // Schluessel arbeiten und mit einem 500 abbrechen.
   if (!env.DOWNLOADS || !env.DOWNLOAD_SECRET) return new Response('Download ist noch nicht freigeschaltet.', { status: 503 });
+  if (!(await verifyToken(env.DOWNLOAD_SECRET, token))) return new Response('Link abgelaufen oder ungültig.', { status: 403 });
   const key = env.DOWNLOAD_KEY || 'welive-booklet.pdf';
   const obj = await env.DOWNLOADS.get(key);
   if (!obj) return new Response('Datei nicht gefunden.', { status: 404 });
