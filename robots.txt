@@ -3,4 +3,4 @@ Allow: /
 Disallow: /impressum/
 Disallow: /datenschutz/
 
-Sitemap: https://www.welive-festival.com/sitemap.xml
+Sitemap: https://welive-festival.com/sitemap.xml
